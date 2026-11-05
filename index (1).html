@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+<title>Leo Club of Dhaka Kamalapur</title>
+<style>
+:root{--bg:#f6f3ff;--fg:#1d1633;--mut:#675f82;--card:#fff;--bd:#e4ddf6;--pri:#5b21b6;--pri2:#c026d3;--gold:#fbbf24;--on:#fff;--ok:#059669;--bad:#e11d48;--c1:#7c3aed;--c2:#ec4899;--c3:#f59e0b;--c4:#06b6d4;--c5:#10b981;--c6:#f43f5e;--sh:0 10px 28px -14px rgba(91,33,182,.45)}
+@media(prefers-color-scheme:dark){:root{--bg:#120d22;--fg:#f3eefd;--mut:#b0a6cc;--card:#1e1736;--bd:#3a2f5e;--pri:#a78bfa;--pri2:#e879f9;--on:#120d22;--ok:#34d399;--bad:#fb7185;--sh:0 10px 28px -14px rgba(0,0,0,.8)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 Inter,"Segoe UI",system-ui,-apple-system,Roboto,sans-serif}
+h1,h2,h3,.logo,.stats b,.sum b{font-family:Poppins,Inter,"Segoe UI",system-ui,sans-serif}
+header{position:sticky;top:0;z-index:5;background:var(--card);display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:10px 5vw;box-shadow:0 4px 18px -10px rgba(91,33,182,.4)}
+header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--c1),var(--c2),var(--c3),var(--c5),var(--c4))}
+.logo{font-weight:800;font-size:16px;letter-spacing:.4px;color:var(--fg);margin-right:auto;line-height:1.2;display:flex;align-items:center;gap:8px}
+.logo i{font-style:normal;background:linear-gradient(135deg,var(--c3),var(--c2));color:#fff;padding:4px 10px;border-radius:8px;font-size:18px}
+nav{display:flex;flex-wrap:wrap;gap:4px;padding-bottom:4px}
+nav button{font:inherit;font-weight:500;font-size:14.5px;background:none;border:0;color:var(--fg);padding:6px 13px;border-radius:99px;cursor:pointer;transition:background .2s}
+nav button:hover{background:var(--bd)}
+nav button.on{background:linear-gradient(90deg,var(--pri),var(--pri2));color:#fff}
+nav button.ghost{border:1.5px solid var(--pri);color:var(--pri)}
+nav button.ghost.on{color:#fff}
+#bar{display:none;background:linear-gradient(90deg,var(--c3),var(--c2));color:#fff;padding:8px 5vw;font-size:14px;font-weight:500}
+#bar button{font:inherit;font-size:13px;margin:2px 0 2px 8px;border:1px solid #fff;background:rgba(255,255,255,.18);border-radius:99px;padding:2px 12px;cursor:pointer;color:#fff}
+.heroWrap{position:relative;overflow:hidden;color:#fff;background:linear-gradient(120deg,#3b0f80 0%,#7c3aed 38%,#db2777 72%,#f59e0b 100%);padding:60px 5vw 72px}
+.heroWrap::before,.heroWrap::after{content:"";position:absolute;border-radius:50%}
+.heroWrap::before{width:360px;height:360px;right:-90px;top:-110px;background:rgba(255,255,255,.12)}
+.heroWrap::after{width:230px;height:230px;right:20%;bottom:-130px;background:rgba(251,191,36,.4)}
+.hin{max-width:1150px;margin:auto;position:relative;z-index:1}
+.badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.45);padding:4px 16px;border-radius:99px;font-size:14px;margin-bottom:16px}
+.heroWrap h1{font-size:clamp(34px,7vw,64px);line-height:1.1;margin:0 0 14px;font-weight:800;color:#fff}
+.heroWrap p{font-size:18px;max-width:640px;margin:0 0 22px;color:rgba(255,255,255,.92)}
+.hbtns{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
+.hbtns .gold{background:var(--gold);color:#1d1633;border:0;font-weight:700;padding:10px 22px;border-radius:99px;font:inherit;font-weight:700;cursor:pointer}
+.hbtns .line{background:none;color:#fff;border:2px solid #fff;padding:8px 22px;border-radius:99px;font:inherit;font-weight:600;cursor:pointer}
+.stats{display:flex;flex-wrap:wrap;gap:14px}
+.stats div{background:#fff;color:#1d1633;border-radius:16px;padding:12px 20px;min-width:160px;border-left:6px solid var(--c);box-shadow:0 10px 24px -12px rgba(0,0,0,.45)}
+.stats div:nth-child(1){--c:var(--c1)}.stats div:nth-child(2){--c:var(--c2)}.stats div:nth-child(3){--c:var(--c5)}
+.stats b{display:block;font-size:32px;line-height:1.2;color:var(--c)}
+main{padding:20px 5vw 70px;max-width:1150px;margin:auto}
+h2{font-size:27px;margin:38px 0 16px;font-weight:800;position:relative;padding-bottom:10px}
+h2::after{content:"";position:absolute;left:0;bottom:0;width:70px;height:5px;border-radius:9px;background:linear-gradient(90deg,var(--c2),var(--c3))}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:22px}
+.grid>.card:nth-child(6n+1){--c:var(--c1)}.grid>.card:nth-child(6n+2){--c:var(--c2)}.grid>.card:nth-child(6n+3){--c:var(--c3)}
+.grid>.card:nth-child(6n+4){--c:var(--c4)}.grid>.card:nth-child(6n+5){--c:var(--c5)}.grid>.card:nth-child(6n+6){--c:var(--c6)}
+.card{background:var(--card);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--sh);border-top:6px solid var(--c,var(--c1));transition:transform .2s}
+.card:hover{transform:translateY(-4px)}
+.card img,.ph{width:100%;height:185px;object-fit:cover;display:block}
+.ph{display:grid;place-items:center;font-size:54px;background:linear-gradient(135deg,var(--c),color-mix(in srgb,var(--c) 35%,#fff))}
+.b{padding:16px 18px 18px}.b h3{margin:4px 0 6px;font-size:19px}.b p{margin:0;color:var(--mut);white-space:pre-line}
+.b small{display:inline-block;background:color-mix(in srgb,var(--c) 15%,transparent);color:var(--c);font-weight:600;padding:1px 10px;border-radius:99px}
+small{color:var(--mut)}
+.ev{display:flex;gap:16px;padding:16px;margin-bottom:14px;background:var(--card);border-radius:16px;box-shadow:var(--sh);border-left:6px solid var(--c)}
+.dt{flex:none;width:68px;height:74px;background:linear-gradient(160deg,var(--c),color-mix(in srgb,var(--c) 55%,#000));color:#fff;border-radius:14px;text-align:center;padding-top:8px;line-height:1.25;font-weight:600}
+.dt b{display:block;font-size:26px;font-family:Poppins,sans-serif}
+.ev h3{margin:0}.ev p{margin:4px 0 0;color:var(--mut)}
+.past{opacity:.6;filter:grayscale(.5)}
+.btn,.ctl button,.ghost2{font:inherit;font-weight:600;cursor:pointer;border-radius:99px;border:1.5px solid var(--pri);padding:7px 20px;background:linear-gradient(90deg,var(--pri),var(--pri2));color:#fff;border-color:transparent}
+.ctl{display:flex;gap:8px;margin-top:12px}
+.ctl button{padding:2px 14px;font-size:13.5px;background:none;color:var(--pri);border-color:var(--pri);font-weight:500}
+.ctl button.del{border-color:var(--bad);color:var(--bad)}
+.tools{margin:0 0 18px;display:flex;gap:10px;flex-wrap:wrap}
+table{width:100%;border-collapse:collapse;min-width:560px;background:var(--card);border-radius:14px;overflow:hidden}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--bd)}
+th{background:linear-gradient(90deg,var(--pri),var(--pri2));color:#fff}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--c1) 5%,transparent)}
+.wrap{overflow-x:auto;border-radius:14px;box-shadow:var(--sh)}
+.in{color:var(--ok);font-weight:600}.out{color:var(--bad);font-weight:600}
+.sum{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:22px}
+.sum div{flex:1;min-width:170px;background:var(--card);border-radius:16px;padding:14px 18px;box-shadow:var(--sh);border-top:6px solid var(--c)}
+.sum div:nth-child(1){--c:var(--c5)}.sum div:nth-child(2){--c:var(--c6)}.sum div:nth-child(3){--c:var(--c1)}
+.sum b{display:block;font-size:27px}
+.login{max-width:380px;background:var(--card);padding:22px;border-radius:18px;box-shadow:var(--sh);border-top:6px solid var(--c2)}
+label{display:block;margin:10px 0;font-size:15px;font-weight:500}
+input,textarea,select{display:block;width:100%;font:inherit;padding:9px 12px;margin-top:4px;border:1.5px solid var(--bd);border-radius:10px;background:var(--bg);color:var(--fg)}
+#modal{display:none;position:fixed;inset:0;background:rgba(20,8,50,.65);z-index:20;overflow:auto;padding:5vh 4vw}
+#modal.open{display:block}
+.mbox{background:var(--card);max-width:480px;margin:auto;padding:22px;border-radius:18px;border-top:6px solid var(--c3)}
+.row{display:flex;gap:10px;margin-top:14px}
+.ghost2{background:none;color:var(--fg);border:1.5px solid var(--bd)}
+.empty{color:var(--mut);padding:22px;border:2px dashed var(--bd);border-radius:14px}
+footer{text-align:center;color:#e9ddff;padding:30px 5vw;font-size:14px;background:linear-gradient(120deg,#2e0f66,#6d28d9 60%,#be185d)}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+@media print{header,#bar,.tools,.ctl,footer,#hero{display:none!important}}
+</style>
+
+</head>
+<body>
+<header><div class="logo"><i>LEO</i><span>CLUB OF DHAKA KAMALAPUR</span></div><nav id="nav"></nav></header>
+<div id="bar">🔐 You are in admin mode. <button onclick="exportDB()">Download backup</button><button onclick="$('#imp').click()">Load backup</button><button onclick="chPw()">Change password</button><input type="file" id="imp" accept=".json" hidden onchange="importDB(this)"></div>
+<div id="hero"></div>
+<main id="app"></main>
+<div id="modal"></div>
+<footer>© Leo Club of Dhaka Kamalapur — Leadership, Experience, Opportunity</footer>
+
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fd=d=>d?new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}):'';
+const tk=n=>'৳ '+Number(n).toLocaleString('en-US');
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,5);
+const today=()=>new Date().toISOString().slice(0,10);
+
+/* ===== Sample data (edit it from the admin panel) ===== */
+const DEF={
+ admin:{id:'leoadmin',pw:'leo@1234'},
+ activities:[
+  {id:'a1',title:'Winter Clothes Distribution',date:'2026-01-12',desc:'Blankets and warm clothes were handed out to 200 families in need.',img:''},
+  {id:'a2',title:'Tree Plantation Drive',date:'2026-07-05',desc:'500 saplings were planted in local schools and neighbourhoods.',img:''},
+  {id:'a3',title:'Free Health Camp',date:'2026-09-20',desc:'Blood pressure and diabetes screening with free medicine, supported by volunteer doctors.',img:''}],
+ partners:[
+  {id:'p1',name:'Underprivileged Children',desc:'Education supplies and meals for street children.',img:''},
+  {id:'p2',name:'Senior Citizens',desc:'Standing by elderly people living alone and in care homes.',img:''},
+  {id:'p3',name:'Local Hospitals & Blood Banks',desc:'Blood donation drives and healthcare support.',img:''}],
+ events:[
+  {id:'e1',title:'Blood Donation Programme',date:'2026-11-20',place:'Community Centre, Kamalapur',desc:'10:00 AM to 4:00 PM.'},
+  {id:'e2',title:'Winter Clothes Collection',date:'2026-12-05',place:'Club Office',desc:'Drop off new or gently used warm clothes.'},
+  {id:'e3',title:'Victory Day Discussion',date:'2026-12-16',place:'Local School Field',desc:'Talk on the Liberation War, followed by a quiz.'}],
+ finance:[
+  {id:'f1',date:'2026-01-05',type:'income',title:'Monthly member subscriptions',amount:12000},
+  {id:'f2',date:'2026-01-10',type:'expense',title:'Blanket purchase',amount:18000},
+  {id:'f3',date:'2026-01-11',type:'income',title:'Donations',amount:25000},
+  {id:'f4',date:'2026-07-03',type:'expense',title:'Sapling purchase',amount:6500}]
+};
+const KEY='leoKamalapurDB';let db=null;
+try{db=JSON.parse(localStorage.getItem(KEY))}catch(e){}
+db=db||JSON.parse(JSON.stringify(DEF));
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(db))}catch(e){alert('Could not save. Try a smaller image.')}};
+
+const S={
+ activities:[['title','Title'],['date','Date','date'],['desc','Description','area'],['img','Photo','img']],
+ partners:[['name','Name'],['desc','Description','area'],['img','Photo / logo','img']],
+ events:[['title','Programme name'],['date','Date','date'],['place','Venue'],['desc','Details','area']],
+ finance:[['date','Date','date'],['type','Type','sel',[['income','Income'],['expense','Expense']]],['title','Description'],['amount','Amount (BDT)','number']]
+};
+let tab='home',admin=false;
+
+const go=t=>{tab=t;render();scrollTo(0,0)};
+function render(){
+ const t=[['home','Home'],['activities','Activities'],['partners','Who We Serve'],['events','Upcoming Programmes']];
+ if(admin)t.push(['finance','Financial Report']);
+ $('#nav').innerHTML=t.map(([k,l])=>`<button class="${tab===k?'on':''}" onclick="go('${k}')">${l}</button>`).join('')+
+  (admin?`<button class="ghost" onclick="logout()">Log out</button>`:`<button class="ghost ${tab==='login'?'on':''}" onclick="go('login')">Admin</button>`);
+ $('#bar').style.display=admin?'block':'none';
+ $('#app').innerHTML=(V[tab]||V.home)();
+ $('#hero').innerHTML=tab==='home'?hero():'';
+}
+const addBtn=(c,l)=>admin?`<div class="tools"><button class="btn" onclick="form('${c}')">+ ${l}</button></div>`:'';
+const ctl=(c,id)=>admin?`<div class="ctl"><button onclick="form('${c}','${id}')">Edit</button><button class="del" onclick="del('${c}','${id}')">Delete</button></div>`:'';
+const pic=(x,e)=>x?`<img src="${x}" alt="">`:`<div class="ph">${e}</div>`;
+const acard=a=>`<article class="card">${pic(a.img,'🤝')}<div class="b"><small>${fd(a.date)}</small><h3>${esc(a.title)}</h3><p>${esc(a.desc)}</p>${ctl('activities',a.id)}</div></article>`;
+const pcard=p=>`<article class="card">${pic(p.img,'💛')}<div class="b"><h3>${esc(p.name)}</h3><p>${esc(p.desc)}</p>${ctl('partners',p.id)}</div></article>`;
+const ecard=(e,i)=>{const d=new Date(e.date);return `<div style="--c:var(--c${i%6+1})" class="ev ${e.date<today()?'past':''}"><div class="dt"><b>${d.toLocaleDateString('en-GB',{day:'numeric'})}</b>${d.toLocaleDateString('en-GB',{month:'short'})}</div><div><h3>${esc(e.title)}</h3><small>📍 ${esc(e.place)} • ${fd(e.date)}</small><p>${esc(e.desc)}</p>${ctl('events',e.id)}</div></div>`};
+const acts=()=>[...db.activities].sort((a,b)=>b.date.localeCompare(a.date));
+const evs=()=>[...db.events].sort((a,b)=>a.date.localeCompare(b.date));
+const empty=m=>`<div class="empty">${m}</div>`;
+
+function hero(){const up=evs().filter(e=>e.date>=today());return `<div class="heroWrap"><div class="hin"><span class="badge">Leadership • Experience • Opportunity</span><h1>Leo Club of<br>Dhaka Kamalapur</h1><p>We are a youth volunteer organisation. Through blood donation, education, healthcare and environmental work, we stand beside our community and grow as leaders by serving it.</p><div class="hbtns"><button class="gold" onclick="go('activities')">See our activities</button><button class="line" onclick="go('events')">Upcoming programmes</button></div><div class="stats"><div><b>${db.activities.length}</b>Activities completed</div><div><b>${db.partners.length}</b>Groups we serve</div><div><b>${up.length}</b>Upcoming programmes</div></div></div></div>`}
+const V={
+ home:()=>{const up=evs().filter(e=>e.date>=today());return `
+    <h2>Recent Activities</h2><div class="grid">${acts().slice(0,3).map(acard).join('')||empty('No activities have been added yet.')}</div>
+  <h2>Coming Up</h2>${up.slice(0,3).map(ecard).join('')||empty('No programmes are scheduled right now.')}`},
+ activities:()=>`<h2>Our Activities & Reports</h2>${addBtn('activities','Add activity')}<div class="grid">${acts().map(acard).join('')||empty('No activities yet.')}</div>`,
+ partners:()=>`<h2>Who We Work With</h2>${addBtn('partners','Add group')}<div class="grid">${db.partners.map(pcard).join('')||empty('Nothing here yet.')}</div>`,
+ events:()=>{const a=evs(),up=a.filter(e=>e.date>=today()),pa=a.filter(e=>e.date<today()).reverse();
+  return `<h2>Upcoming Programme Schedule</h2>${addBtn('events','Add programme')}${up.map(ecard).join('')||empty('No programmes are scheduled right now.')}${pa.length?`<h2>Past Programmes</h2>${pa.map(ecard).join('')}`:''}`},
+ finance:()=>{if(!admin)return V.login();
+  const f=[...db.finance].sort((a,b)=>b.date.localeCompare(a.date)),i=f.filter(x=>x.type==='income').reduce((s,x)=>s+x.amount,0),o=f.filter(x=>x.type==='expense').reduce((s,x)=>s+x.amount,0);
+  return `<h2>Club Financial Report</h2><div class="tools"><button class="btn" onclick="form('finance')">+ Add entry</button> <button class="ghost2" onclick="print()">Print / Save as PDF</button></div>
+  <div class="sum"><div><small>Total income</small><b class="in">${tk(i)}</b></div><div><small>Total expense</small><b class="out">${tk(o)}</b></div><div><small>Current balance</small><b>${tk(i-o)}</b></div></div>
+  <div class="wrap"><table><tr><th>Date</th><th>Description</th><th>Type</th><th>Amount</th><th></th></tr>${f.map(x=>`<tr><td>${fd(x.date)}</td><td>${esc(x.title)}</td><td class="${x.type==='income'?'in':'out'}">${x.type==='income'?'Income':'Expense'}</td><td>${tk(x.amount)}</td><td>${ctl('finance',x.id)}</td></tr>`).join('')||'<tr><td colspan="5">No entries yet.</td></tr>'}</table></div>`},
+ login:()=>admin?V.home():`<h2>Admin Login</h2><form class="login" onsubmit="login(event)"><label>Admin ID<input id="uid" autocomplete="username" required></label><label>Password<input id="upw" type="password" autocomplete="current-password" required></label><button class="btn">Log in</button><p><small>For club administrators only.</small></p></form>`
+};
+
+function login(e){e.preventDefault();
+ if($('#uid').value.trim()===db.admin.id&&$('#upw').value===db.admin.pw){admin=true;go('home')}
+ else alert('Wrong ID or password. Please try again.')}
+const logout=()=>{admin=false;go('home')};
+function chPw(){const p=prompt('Enter a new password (at least 6 characters):');if(p&&p.length>=6){db.admin.pw=p;save();alert('Password changed.')}}
+
+function form(c,id){
+ const o=id?db[c].find(x=>x.id===id):{};
+ const h=S[c].map(([k,l,t,opt])=>{const v=esc(o[k]);
+  if(t==='area')return `<label>${l}<textarea name="${k}" rows="4">${v}</textarea></label>`;
+  if(t==='img')return `<label>${l}<input type="file" name="${k}" accept="image/*"></label>${o[k]?'<small>The current photo stays unless you choose a new one.</small>':''}`;
+  if(t==='sel')return `<label>${l}<select name="${k}">${opt.map(([a,b])=>`<option value="${a}" ${o[k]===a?'selected':''}>${b}</option>`).join('')}</select></label>`;
+  return `<label>${l}<input name="${k}" type="${t||'text'}" value="${v}" ${t==='number'?'min="0"':''} required></label>`}).join('');
+ $('#modal').innerHTML=`<form class="mbox" onsubmit="saveForm(event,'${c}','${id||''}')"><h3>${id?'Edit':'Add new'}</h3>${h}<div class="row"><button class="btn">Save</button><button type="button" class="ghost2" onclick="closeM()">Cancel</button></div></form>`;
+ $('#modal').classList.add('open')}
+const closeM=()=>$('#modal').classList.remove('open');
+const shrink=f=>new Promise(r=>{const i=new Image();i.onload=()=>{const s=Math.min(1,800/Math.max(i.width,i.height)),c=document.createElement('canvas');c.width=i.width*s;c.height=i.height*s;c.getContext('2d').drawImage(i,0,0,c.width,c.height);r(c.toDataURL('image/jpeg',.7))};i.src=URL.createObjectURL(f)});
+async function saveForm(e,c,id){
+ e.preventDefault();const o=id?db[c].find(x=>x.id===id):{id:uid()};
+ for(const [k,,t] of S[c]){const el=e.target.elements[k];
+  if(t==='img'){if(el.files[0])o[k]=await shrink(el.files[0]);else if(!id)o[k]=''}
+  else o[k]=t==='number'?+el.value:el.value}
+ if(!id)db[c].push(o);save();closeM();render()}
+function del(c,id){if(confirm('Delete this item permanently?')){db[c]=db[c].filter(x=>x.id!==id);save();render()}}
+
+function exportDB(){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(db)],{type:'application/json'}));a.download='leo-club-backup.json';a.click()}
+function importDB(i){const f=i.files[0];if(!f)return;f.text().then(t=>{try{const d=JSON.parse(t);if(!d.activities||!d.admin)throw 0;db=d;save();render();alert('Backup loaded.')}catch(e){alert('This file is not a valid backup.')}})}
+$('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeM()});
+render();
+</script>
+</body>
+</html>
